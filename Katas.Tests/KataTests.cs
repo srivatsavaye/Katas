@@ -13,5 +13,16 @@ namespace Katas.Tests
             Assert.AreEqual(16, kata.SumWithOutHighestAndLowestNumber(new[] { 6, 2, 1, 8, 10 }));
             Assert.AreEqual(6, kata.SumWithOutHighestAndLowestNumber(new[] { 1, 1, 11, 2, 3 }));
         }
+
+        [TestMethod]
+        public void FlipBit()
+        {
+            var kata = new Kata();
+            Assert.AreEqual(7, kata.FlipBit(15, 4));
+            Assert.AreEqual(1, kata.FlipBit(0, 1));
+            Assert.AreEqual(14, kata.FlipBit(15, 1));
+            Assert.AreEqual(32768, kata.FlipBit(0, 16));
+            Assert.AreEqual(255, kata.FlipBit(127, 8));
+        }
     }
 }

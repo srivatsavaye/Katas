@@ -22,5 +22,34 @@ namespace Katas
 
             return numbers.Sum(r => r);
         }
+
+        public int FlipBit(int value, int bitIndex)
+        {
+            var binary = Convert.ToString(value, 2).ToCharArray().Reverse().ToList();
+
+            if (bitIndex - 1 >= binary.Count)
+            {
+                var loopCount = bitIndex - binary.Count;
+                while (loopCount != 1)
+                {
+                    binary.Add('0');
+                    loopCount--;
+                }
+                binary.Add('1');
+            }
+            else
+            {
+                if (binary[bitIndex - 1] == '1')
+                {
+                    binary[bitIndex - 1] = '0';
+                }
+                else
+                {
+                    binary[bitIndex - 1] = '1';
+                }
+            }
+            
+            return Convert.ToInt32(string.Join("", binary.ToArray().Reverse()),2);
+        }
     }
 }
