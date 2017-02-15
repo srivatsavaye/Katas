@@ -51,5 +51,22 @@ namespace Katas
             
             return Convert.ToInt32(string.Join("", binary.ToArray().Reverse()),2);
         }
+
+        public int BouncingBall(double h, double bounce, double window)
+        {
+            if (bounce <= 0 || bounce >= 1 || h <= window)
+            {
+                return -1;
+            }
+            var bounces = 1;
+            var height= h * bounce;
+            while (height > window)
+            {
+                height = height * bounce;
+                bounces = bounces + 2;
+            }
+
+            return bounces;
+        }
     }
 }

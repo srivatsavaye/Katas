@@ -24,5 +24,13 @@ namespace Katas.Tests
             Assert.AreEqual(32768, kata.FlipBit(0, 16));
             Assert.AreEqual(255, kata.FlipBit(127, 8));
         }
+
+        [TestMethod]
+        public void BouncingBall()
+        {
+            var kata = new Kata();
+            Assert.AreEqual(3, kata.BouncingBall(3.0, 0.66, 1.5));
+            Assert.AreEqual(15, kata.BouncingBall(30.0, 0.66, 1.5));
+        }
     }
 }
