@@ -32,5 +32,19 @@ namespace Katas.Tests
             Assert.AreEqual(3, kata.BouncingBall(3.0, 0.66, 1.5));
             Assert.AreEqual(15, kata.BouncingBall(30.0, 0.66, 1.5));
         }
+
+        [TestMethod]
+        public void BuyingACar()
+        {
+            var kata = new Kata();
+            int[] r = new int[] { 6, 766 };
+            var actualResult = kata.BuyingACar(2000, 8000, 1000, 1.5);
+            Assert.AreEqual(6, actualResult[0]);
+            Assert.AreEqual(766, actualResult[1]);
+
+            actualResult = kata.BuyingACar(12000, 8000, 1000, 1.5);
+            Assert.AreEqual(0, actualResult[0]);
+            Assert.AreEqual(4000, actualResult[1]);
+        }
     }
 }

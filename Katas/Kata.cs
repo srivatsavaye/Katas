@@ -68,5 +68,28 @@ namespace Katas
 
             return bounces;
         }
+
+        public  int[] BuyingACar(int startPriceOld, int startPriceNew, int savingperMonth, double percentLossByMonth)
+        {
+            double priceNew = startPriceNew;
+            double priceOld = startPriceOld;
+            double amountSaved = 0;
+            var counter = 0; 
+
+            while (amountSaved + priceOld < priceNew)
+            {
+                if (counter % 2 == 1)
+                {
+                    percentLossByMonth = percentLossByMonth + .5;
+                }
+                counter++;
+                priceOld = priceOld - ((priceOld * percentLossByMonth)/100);
+                priceNew = priceNew - ((priceNew * percentLossByMonth)/100);
+                amountSaved = amountSaved + savingperMonth;
+            }
+
+            var buyingACar = new[] {counter, Convert.ToInt32(amountSaved + priceOld - priceNew)};
+            return buyingACar;
+        }
     }
 }
